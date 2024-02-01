@@ -22,7 +22,7 @@ pipeline {
 
       password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
-
+//I have added a comment here
     triggers { pollSCM('*/1 * * * *') }
 
     stages {
