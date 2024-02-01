@@ -113,6 +113,7 @@ node('workstation') {
   def x = 10
   env.y = 20
   stage('Test') {
-    echo ' echo y - ${y}'
+    print x
+    sh ' echo y - ${y}'
   }
 }
