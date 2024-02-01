@@ -25,6 +25,10 @@ pipeline {
 //I have added a comment here
     triggers { pollSCM('*/1 * * * *') }
 
+    tools {
+      maven 'maven'
+    }
+
     stages {
       stage('Compile') {
         steps {
@@ -34,6 +38,7 @@ pipeline {
           echo SSH
           sh 'env'
           sh 'ansible -i 172.31.28.60, all -e ansible_user=${SSH_USR} -e ansible_password=${SSH_PSW} -m ping'
+          sh 'mvn version'
         }
       }
     }
