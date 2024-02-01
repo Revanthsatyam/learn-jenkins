@@ -116,8 +116,14 @@ def samplef() {
 }
 
 node('workstation') {
-  stage('Test') {
-    print x
-    samplef()
+  if ( x>10 ) {
+    stage('Test') {
+      print x
+      samplef()
+      }
+  } else {
+    stage('Test1') {
+      samplef()
+    }
   }
 }
