@@ -110,8 +110,8 @@
 // }
 
 node('workstation') {
-  def x:integer = 10
+  def x = 10
   stage('Test') {
-    print x
+    sh 'echo x'
   }
 }
