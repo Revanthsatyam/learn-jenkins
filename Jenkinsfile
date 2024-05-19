@@ -22,7 +22,7 @@ pipeline {
           echo 'Hello World'
       }
     }
-    stage('Deploy') {
+    stage('APP Deploy') {
       steps {
           echo 'Hello World'
       }
