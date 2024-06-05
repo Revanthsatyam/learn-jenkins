@@ -143,9 +143,9 @@ pipeline {
    SSH = credentials("centos-ssh")
  }
 
- options {
-   ansiColor('xterm')
- }
+//  options {
+//    ansiColor('xterm')
+//  }
 
  parameters {
    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
