@@ -135,61 +135,20 @@
 // }
 
 pipeline {
- agent any
-//  agent { node { label 'workstation' } }
+  agent any
 
- environment {
-   TEST_URL = "google.com"
-   SSH = credentials("centos-ssh")
- }
+  stages {
+    stage ('Compile Code') {
+      steps {
+        echo 'Hello World'
+      }
+    }
+  }
 
-//  options {
-//    ansiColor('xterm')
-//  }
-
- parameters {
-   string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-
-   text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-
-   booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-
-   choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-
-   password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
- }
- triggers { pollSCM('*/1 * * * *') }
-
- tools {
-   maven 'maven'
- }
-
- stages {
-
-   stage('Compile') {
-//      input {
-//        message "Should we continue?"
-//        ok "Yes, we should."
-//      }
-
-//      when {
-//        branch 'main'
-//      }
-     steps {
-       echo 'Hello World'
-       //error 'This is an error'
-     }
-   }
-
- }
-
- post {
-   always {
-     echo 'Post'
-     // Send Email
-     // Trigger Some another Job
-     // Update some JIRA Status about the build.
-   }
- }
+  post {
+    always {
+      echo 'post'
+    }
+  }
 
 }
