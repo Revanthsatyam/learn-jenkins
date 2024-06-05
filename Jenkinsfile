@@ -113,41 +113,22 @@
 //  }
 //}
 
-// def x = 10
-// env.y = 20 // When you need to access a variable inside a shell then declare the variable like this otherwise you can declare like above.
-// def samplef() {
-//   print "XYZ Function"
-// }
-//
-// node('workstation') {
-//   if (x >10 ) {
-//     stage('Test') {
-//       print x
-//       sh 'echo y - ${y}' // You can access the variables like this.
-//       samplef()
-//     }
-//   } else {
-//     stage('Test1') {
-//       samplef()
-//     }
-//   }
-//
-// }
+def x = 10
+env.y = 20 // When you need to access a variable inside a shell then declare the variable like this otherwise you can declare like above.
+def samplef() {
+  print "XYZ Function"
+}
 
-pipeline {
-  agent any
-
-  stages {
-    stage ('Compile Code') {
-      steps {
-        echo 'Hello World'
-      }
+node('workstation') {
+  if (x >10 ) {
+    stage('Test') {
+      print x
+      sh 'echo y - ${y}' // You can access the variables like this.
+      samplef()
     }
-  }
-
-  post {
-    always {
-      echo 'post'
+  } else {
+    stage('Test1') {
+      samplef()
     }
   }
 
