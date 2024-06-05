@@ -176,12 +176,8 @@ pipeline {
 //        branch 'main'
 //      }
      steps {
-       //echo 'Hello World'
+       echo 'Hello World'
        //error 'This is an error'
-       echo TEST_URL
-       echo SSH
-       sh 'env'
-       sh 'mvn version'
      }
    }
 
