@@ -172,16 +172,15 @@ pipeline {
 //        ok "Yes, we should."
 //      }
 
-     when {
-       branch 'main'
-     }
+//      when {
+//        branch 'main'
+//      }
      steps {
        //echo 'Hello World'
        //error 'This is an error'
        echo TEST_URL
        echo SSH
        sh 'env'
-       sh 'ansible -i 172.31.85.208, all -e ansible_user=${SSH_USR} -e ansible_password=${SSH_PSW} -m ping'
        sh 'mvn version'
      }
    }
